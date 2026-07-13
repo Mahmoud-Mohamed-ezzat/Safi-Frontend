@@ -63,7 +63,7 @@ export default function ManagePrices() {
   const [saving, setSaving] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [viewMode, setViewMode] = useState("current");
-  const [serviceFilter, setServiceFilter] = useState("");
+  const [serviceFilter] = useState("");
   const [form, setForm] = useState(emptyForm());
   const [editingPrice, setEditingPrice] = useState(null);
 
@@ -103,20 +103,14 @@ export default function ManagePrices() {
 
   useEffect(() => {
     fetchDepartments();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     fetchPrices();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [viewMode]);
 
-  const serviceOptions = useMemo(() => {
-    const fromPrices = prices.map((p) => getField(p, "serviceName", "ServiceName")).filter(Boolean);
-    const fromDepartments = departments.flatMap((dept) =>
-      ROOM_TYPES.map((type) => buildServiceName(type, dept.name))
-    );
-    const fromAdditional = ADDITIONAL_SERVICES;
-    return [...new Set([...fromPrices, ...fromDepartments, ...fromAdditional])].sort();
-  }, [prices, departments]);
 
 
   const filteredPrices = useMemo(() => {

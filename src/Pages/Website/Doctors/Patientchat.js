@@ -106,6 +106,7 @@ export const ChatPage = ({ doctorId, doctorName: providedDoctorName }) => {
       }
     };
     fetchShelters();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentDoctorId]);
 
   useEffect(() => {

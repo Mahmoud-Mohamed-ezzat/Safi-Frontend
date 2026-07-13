@@ -91,7 +91,7 @@ const DoctorProfile = () => {
   const [tempImage, setTempImage] = useState(null); // For UI preview
   const [imageFile, setImageFile] = useState(null); // For API upload
   const [appointments, setAppointments] = useState([]);
-  const [assignedWorks, setAssignedWorks] = useState([]);
+  const [, setAssignedWorks] = useState([]);
 
   const resolvedDoctorId = useMemo(
     () => doctor?.id ?? getLoggedInDoctorId(),

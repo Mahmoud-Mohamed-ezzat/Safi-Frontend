@@ -13,7 +13,6 @@ import {
   hubSuccess,
   hubValue,
   mergeDoctorOptions,
-  normalizeDoctorOption,
   toArray,
 } from "./appointmentShared";
 import "./appointments.css";

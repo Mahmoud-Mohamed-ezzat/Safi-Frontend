@@ -48,8 +48,6 @@ export default function Profile() {
 
         const user = JSON.parse(storedUser);
         const userId = user.id;
-        // Handle both possible property names from Login.js
-        const userName = user.userName || user.username || user.name || "Unknown";
 
         // Using the new API: /api/Accounts/GetPatients/{id}
         const res = await axiosInstance.get(`/api/Accounts/GetPatients/${userId}`);

@@ -20,7 +20,7 @@ function Sidebar() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const [doctor, setDoctor] = useState({
+  const [, setDoctor] = useState({
     name: "",
     departmentName: ""
   });

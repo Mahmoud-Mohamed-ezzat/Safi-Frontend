@@ -11,7 +11,6 @@ import {
   Building2,
   Hospital,
   LogOut,
-  Currency,
   Timer,
 } from "lucide-react";
 import "./Navbar.css";

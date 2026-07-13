@@ -8,7 +8,7 @@ const PHONE_REGEX = /^(010|011|012|015)\d{8}$/;
 
 export default function SubAdmin() {
   const [subAdmins, setSubAdmins] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [, setLoading] = useState(true);
   const [editingId, setEditingId] = useState(null);
 
   // Fetch subadmins from API on mount

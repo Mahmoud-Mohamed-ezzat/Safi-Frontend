@@ -55,7 +55,7 @@ const itemVariants = {
 
 const AdminDashboard = () => {
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const [, setError] = useState(false);
 
   // Initializing with explicit defaults to prevent "undefined" errors during render
   const [totalStats, setTotalStats] = useState({

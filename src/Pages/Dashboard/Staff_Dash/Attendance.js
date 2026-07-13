@@ -110,6 +110,7 @@ export default function Attendance() {
         };
 
         fetchAll();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedDate]);
 
     const handleStatusChange = useCallback((person, statusKey) => {
@@ -157,6 +158,7 @@ export default function Attendance() {
                 className: "att-toast-wrapper",
             }
         );
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []); 
 
     const submitAttendance = async (person, statusKey) => {

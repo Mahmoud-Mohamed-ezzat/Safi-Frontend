@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import {
-  User,
-  FileText,
   ClipboardList,
   Calendar,
   Clock,

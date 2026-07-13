@@ -117,8 +117,7 @@ export default function StaffManageBills() {
       const res = await axiosInstance.get(`/api/Bill/GetBillByid/${billId}`);
       let data = res.data;
       if (data?.$values) data = data.$values;
-      if (Array.isArray(data)) data = data;
-      setSelectedBill(data);
+      setSelectedBill(Array.isArray(data) ? data[0] ?? data : data);
     } catch (err) {
       console.error(err);
       toast.error("Failed to fetch bill details.");
@@ -148,7 +147,7 @@ export default function StaffManageBills() {
       
       let updatedBill = res.data;
       if (updatedBill?.$values) updatedBill = updatedBill.$values;
-      if (Array.isArray(updatedBill)) updatedBill = updatedBill;
+      if (Array.isArray(updatedBill)) updatedBill = updatedBill[0] ?? updatedBill;
 
       toast.success(`Bill #${billId} closed successfully!`);
       

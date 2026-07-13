@@ -192,8 +192,8 @@ const DoctorReservation = () => {
   }, []);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     loadSlots(selectedDate);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [doctorId, selectedDate]);
 
   useEffect(() => {

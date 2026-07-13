@@ -3,49 +3,9 @@ import '../Homepage/Home.css';
 import { BsShieldCheck, BsPeopleFill, BsClockHistory } from 'react-icons/bs';
 import { GiLiver, GiKidneys } from "react-icons/gi";
 import { FaHeartbeat } from "react-icons/fa";
-import Marquee from 'react-fast-marquee';
 import ChatbotWidget from "../Chatbot/Chatbot";
 
-const medicalFormImage = "/assets/images/3d-illustration-pen-putting-blue-ticks-paper.jpg";
-
 export default function Homepage() {
-
-    const doctorData = [
-        {
-            id: 1,
-            name: 'Dr. Sarah Chen',
-            specialization: 'Cardiologist',
-            photoUrl: '/assets/images/b997a530822d0f2c03259070d4590d45.jpg',
-        },
-        {
-            id: 2,
-            name: 'Dr. John Smith',
-            specialization: 'Pediatrician',
-            photoUrl: '/assets/images/ai-generative-portrait-of-confident-male-doctor-in-white-coat-and-stethoscope-standing-with-arms-crossed-and-looking-at-camera-photo.jpg',
-        },
-        {
-            id: 3,
-            name: 'Dr. Aisha Khan',
-            specialization: 'Dermatologist',
-            photoUrl: '/assets/images/woman-doctor-wearing-lab-coat-with-stethoscope-isolated_1303-29791.jpg',
-        },
-        {
-            id: 4,
-            name: 'Dr. Emilio Rossi',
-            specialization: 'Neurologist',
-            photoUrl: '/assets/images/healthcare-medical-staff-concept-portrait-600nw-2281024823.webp',
-        },
-    ];
-
-    const DoctorCard = ({ name, specialization, photoUrl }) => (
-        <div className="doctor-card">
-            <img src={photoUrl} alt={name} className="doctor-photo" />
-            <div className="doctor-info">
-                <h3 className="doctor-name">{name}</h3>
-                <p className="doctor-spec">{specialization}</p>
-            </div>
-        </div>
-    );
 
     return (
         <>
