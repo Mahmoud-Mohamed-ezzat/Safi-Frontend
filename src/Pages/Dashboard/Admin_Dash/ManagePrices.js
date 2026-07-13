@@ -6,8 +6,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 const ROOM_TYPES = ["ICU", "Room", "Emergency", "HeartReservation", "KidneyReservation", "LiverReservation"];
 
-const ADDITIONAL_SERVICES = ["HeartReservation", "KidneyReservation", "LiverReservation"];
-
 const unwrapList = (data) => {
   if (data?.$values) return data.$values;
   return Array.isArray(data) ? data : [];
