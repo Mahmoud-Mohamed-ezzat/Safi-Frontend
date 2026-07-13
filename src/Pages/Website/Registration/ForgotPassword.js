@@ -24,7 +24,7 @@ export default function ForgotPassword() {
             
             const response = await axiosInstance.post('/api/Accounts/ForgetPassword', {
                 email: email,
-                resetLink: 'http://localhost:3000/ResetPassword'
+                resetLink: window.location.origin + '/ResetPassword'
             });
 
             if (response.status === 200 || response.data) {

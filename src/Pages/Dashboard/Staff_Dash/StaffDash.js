@@ -63,8 +63,8 @@ export default function Staffdash() {
                     name: data.name || "",
                     photo: data.image
                         ? (data.image.startsWith("/")
-                            ? `http://safi-med.runasp.net${data.image}`
-                            : `http://safi-med.runasp.net/images/${data.image}`)
+                            ? `https://safi-med.runasp.net${data.image}`
+                            : `https://safi-med.runasp.net/images/${data.image}`)
                         : defaultAvatar,
                     university: data.university || "",
                     DateOfBirth: (data.dateOfBirth && data.dateOfBirth !== "0001-01-01") ? data.dateOfBirth : "",
