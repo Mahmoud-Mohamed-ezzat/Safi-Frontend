@@ -111,7 +111,7 @@ export const ChatPage = ({ doctorId, doctorName: providedDoctorName }) => {
 
   useEffect(() => {
     const newConnection = new signalR.HubConnectionBuilder()
-      .withUrl('https://localhost:7250/messageHub')
+      .withUrl('http://safi-med.runasp.net/messageHub')
       .configureLogging(signalR.LogLevel.Information)
       .withAutomaticReconnect()
       .build();

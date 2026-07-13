@@ -43,7 +43,7 @@ export default function ICU() {
         const connectSignalR = async () => {
             try {
                 const newConnection = new HubConnectionBuilder()
-                    .withUrl("https://localhost:7250/appointmentHub")
+                    .withUrl("http://safi-med.runasp.net/appointmentHub")
                     .configureLogging(LogLevel.Information)
                     .withAutomaticReconnect()
                     .build();

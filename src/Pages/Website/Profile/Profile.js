@@ -17,9 +17,9 @@ const getImageUrl = (imagePath) => {
   if (imagePath.startsWith("http")) return imagePath;
   const cleanPath = imagePath.startsWith("/") ? imagePath : `/${imagePath}`;
   if (cleanPath.startsWith("/images/")) {
-    return `https://localhost:7250${cleanPath}`;
+    return `http://safi-med.runasp.net${cleanPath}`;
   }
-  return `https://localhost:7250/images${cleanPath}`;
+  return `http://safi-med.runasp.net/images${cleanPath}`;
 };
 
 export default function Profile() {

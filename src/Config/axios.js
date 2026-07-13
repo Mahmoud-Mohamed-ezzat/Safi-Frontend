@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: 'https://localhost:7250',
+  baseURL: 'http://safi-med.runasp.net',
   timeout: 30000,
   headers: {
     "Content-Type": "application/json",

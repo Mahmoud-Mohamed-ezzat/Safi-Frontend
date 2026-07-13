@@ -54,8 +54,8 @@ export default function NurseReports() {
     if (image) {
       if (image.startsWith('http')) return image;
       return image.startsWith('/')
-        ? `https://localhost:7250${image}`
-        : `https://localhost:7250/images/${image}`;
+        ? `http://safi-med.runasp.net${image}`
+        : `http://safi-med.runasp.net/images/${image}`;
     }
     return `https://ui-avatars.com/api/?name=${encodeURIComponent(name || 'Patient')}&background=0D9488&color=fff&size=128`;
   };
