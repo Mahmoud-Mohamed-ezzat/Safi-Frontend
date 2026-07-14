@@ -52,9 +52,20 @@ export default function Profile() {
 
         const user = JSON.parse(storedUser);
         const userId = user.id;
+        const userName = user.userName || user.username || user.name || "Unknown";
 
-        // Using the new API: /api/Accounts/GetPatients/{id}
-        const res = await axiosInstance.get(`/api/Accounts/GetPatients/${userId}`);
+        let res;
+        try {
+          // Using the new API: /api/Accounts/GetPatients/{id}
+          res = await axiosInstance.get(`/api/Accounts/GetPatients/${userId}`);
+        } catch (firstErr) {
+          if (firstErr.response?.status === 403) {
+            console.warn("GetPatients returned 403, falling back to GetPatientByIdOrName...");
+            res = await axiosInstance.get(`/api/Accounts/GetPatientByIdOrName/0/${userName}`);
+          } else {
+            throw firstErr;
+          }
+        }
 
         // Handle potential wrapping and normalize data
         let rawData = res.data;
@@ -91,6 +102,11 @@ export default function Profile() {
           toast.error("Access Denied: Your session is invalid or you don't have permission. Please log in again.");
           localStorage.removeItem("token");
           localStorage.removeItem("user");
+          try {
+            await axiosInstance.post("/api/Accounts/LogOut");
+          } catch (e) {
+            console.error("Logout API failed", e);
+          }
           setTimeout(() => {
             window.location.href = "/login";
           }, 2000);
