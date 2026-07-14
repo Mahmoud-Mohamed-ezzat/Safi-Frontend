@@ -96,7 +96,7 @@ export default function Signup() {
         });
 
         setTimeout(() => {
-          window.location.href = "/login";
+          window.location.href = "/";
         }, 1000);
       }
 
@@ -138,7 +138,6 @@ export default function Signup() {
       <div className="layout-image-side">
 
       </div>
-
       <div className="register-container">
         <ToastContainer position="top-center" autoClose={3000} hideProgressBar={false} newestOnTop closeOnClick pauseOnHover draggable stacked />
 
@@ -158,7 +157,7 @@ export default function Signup() {
           <input type="password" name="password" value={form.password} onChange={handleChange} placeholder="Enter Your Password" />
 
           <label>DateOfBirth</label>
-          <input type="date" name="DateOfBirth" value={form.DateOfBirth} onChange={handleChange} placeholder="Enter Your Date Of Birth" />
+          <input type="date" name="DateOfBirth" value={form.DateOfBirth} onChange={(e) => setForm({ ...form, DateOfBirth: e.target.value })} placeholder="Enter Your Date Of Birth" />
 
           <label>Gender
             <label>
