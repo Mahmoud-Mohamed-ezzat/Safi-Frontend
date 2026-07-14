@@ -87,8 +87,13 @@ export default function Profile() {
 
       } catch (error) {
         console.error("Error fetching patient:", error);
-        if (error.response?.status === 403) {
-          toast.error("Access Forbidden (403): You don't have permission to view this profile or the name mismatch.");
+        if (error.response?.status === 403 || error.response?.status === 401) {
+          toast.error("Access Denied: Your session is invalid or you don't have permission. Please log in again.");
+          localStorage.removeItem("token");
+          localStorage.removeItem("user");
+          setTimeout(() => {
+            window.location.href = "/login";
+          }, 2000);
         } else {
           toast.error("Failed to load patient details.");
         }
