@@ -95,6 +95,27 @@ export default function Signup() {
           progress: undefined,
         });
 
+        // Automatically log the user in so their data loads when redirecting
+        try {
+          const loginRes = await axiosInstance.post("/api/Accounts/Login", {
+            email: form.email,
+            password: form.password
+          });
+          if (loginRes.status === 200 && loginRes.data.token) {
+            const token = loginRes.data.token;
+            const user = {
+              id: loginRes.data.id,
+              email: loginRes.data.email,
+              userName: loginRes.data.userName,
+              role: loginRes.data.role
+            };
+            localStorage.setItem("token", token);
+            localStorage.setItem("user", JSON.stringify(user));
+          }
+        } catch (loginErr) {
+          console.error("Auto-login failed:", loginErr);
+        }
+
         setTimeout(() => {
           window.location.href = "/";
         }, 1000);
