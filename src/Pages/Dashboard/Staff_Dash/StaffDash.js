@@ -5,6 +5,16 @@ import { ToastContainer, toast } from "react-toastify";
 import "../Nurse_Dash/Nurse.css"; 
 import Staffsidebar from "./Staff_Sidebar";
 
+const getImageUrl = (image) => {
+  if (!image) return "";
+  if (image.startsWith("http")) return image;
+  if (image.startsWith("data:image")) return image;
+  const cleanImg = image.replace(/\\/g, "/");
+  const idx = cleanImg.indexOf("/images/");
+  if (idx !== -1) return `https://safi-med.runasp.net${cleanImg.substring(idx)}`;
+  return cleanImg.startsWith("/") ? `https://safi-med.runasp.net${cleanImg}` : `https://safi-med.runasp.net/images/${cleanImg}`;
+};
+
 export default function Staffdash() {
     const location = useLocation();
     const navigate = useNavigate();
@@ -62,9 +72,7 @@ export default function Staffdash() {
                     ...prevState,
                     name: data.name || "",
                     photo: data.image
-                        ? (data.image.startsWith("/")
-                            ? `https://safi-med.runasp.net${data.image}`
-                            : `https://safi-med.runasp.net/images/${data.image}`)
+                        ? getImageUrl(data.image)
                         : defaultAvatar,
                     university: data.university || "",
                     DateOfBirth: (data.dateOfBirth && data.dateOfBirth !== "0001-01-01") ? data.dateOfBirth : "",

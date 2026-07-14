@@ -15,11 +15,15 @@ const normalizeMedicines = (medicines) => {
 const getImageUrl = (imagePath) => {
   if (!imagePath) return "https://via.placeholder.com/150";
   if (imagePath.startsWith("http")) return imagePath;
-  const cleanPath = imagePath.startsWith("/") ? imagePath : `/${imagePath}`;
-  if (cleanPath.startsWith("/images/")) {
-    return `https://safi-med.runasp.net${cleanPath}`;
+  if (imagePath.startsWith("data:image")) return imagePath;
+  const cleanImg = imagePath.replace(/\\/g, "/");
+  const idx = cleanImg.indexOf("/images/");
+  if (idx !== -1) {
+    return `https://safi-med.runasp.net${cleanImg.substring(idx)}`;
   }
-  return `https://safi-med.runasp.net/images${cleanPath}`;
+  return cleanImg.startsWith("/") 
+    ? `https://safi-med.runasp.net${cleanImg}` 
+    : `https://safi-med.runasp.net/images/${cleanImg}`;
 };
 
 export default function Profile() {

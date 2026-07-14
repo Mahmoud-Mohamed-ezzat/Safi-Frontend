@@ -27,9 +27,12 @@ function SessionReports() {
     if (image) {
       if (image.startsWith('http')) return image;
       if (image.startsWith('data:image')) return image;
-      return image.startsWith('/')
-        ? `https://safi-med.runasp.net${image}`
-        : `https://safi-med.runasp.net/images/${image}`;
+      const cleanImg = image.replace(/\\/g, '/');
+      const idx = cleanImg.indexOf('/images/');
+      if (idx !== -1) return `https://safi-med.runasp.net${cleanImg.substring(idx)}`;
+      return cleanImg.startsWith('/')
+        ? `https://safi-med.runasp.net${cleanImg}`
+        : `https://safi-med.runasp.net/images/${cleanImg}`;
     }
     return `https://ui-avatars.com/api/?name=${encodeURIComponent(name || 'Unknown')}&background=0D9488&color=fff&size=128`;
   };
